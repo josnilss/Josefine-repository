@@ -20,13 +20,19 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
       $(function() {
-        $('.resultSection').hide()
+        $('.resultSection').hide();
 
         var add_option = function() {
           $('.inputs').append('<input></input>')
-        }
+          $("input:text:visible:last").focus();
+          }
 
         $('.addOption').click(add_option)
+        $('.inputSection').keydown(function(e) {
+          if (e.keyCode == 13) {
+            add_option();
+          }
+      });
 
         var options = []
         var submit = function() {
